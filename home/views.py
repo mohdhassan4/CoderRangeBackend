@@ -255,7 +255,7 @@ def democlass_signup(request):
                 Phonenumber = Democlass_otp.objects.filter(phonenumber=phone)
                 if Phonenumber.exists():
                     Democlass_otp.objects.filter(phonenumber=phone).update(otp=opt1)
-                    send_sms(account_sid,auth_token,msg_body,'+18434080524',phone)
+                    send_sms(account_sid,auth_token,msg_body,'+14152003922',phone)
                     return redirect('/demo/course/otp')
             else:
                 if form.is_valid():
@@ -264,7 +264,7 @@ def democlass_signup(request):
                     instance.otp=opt1
                     instance.date=today
                     instance.save()
-                    send_sms(account_sid,auth_token,msg_body,'+18434080524',phone)
+                    send_sms(account_sid,auth_token,msg_body,'+14152003922',phone)
                     return redirect('/demo/course/otp')
 def resend(request):
     opt1=ran_otp()
@@ -278,7 +278,7 @@ def resend(request):
             # Resendotp
         if Phonenumber.exists():
             Democlass_otp.objects.filter(phonenumber=number).update(otp=opt1)
-            send_sms(account_sid,auth_token,msg_body,'+18434080524',number)
+            send_sms(account_sid,auth_token,msg_body,'+14152003922',number)
             return redirect('/demo/course/otp')
     else:
         messages.info(request,'Your Details Expired Please Try Again')
@@ -350,7 +350,7 @@ def demo_sign(request):
             instance.coursesId_id=courseid
             instance.save()
             Democlass_otp.objects.filter(phonenumber=number,validate='True').delete()
-            send_sms(account_sid,auth_token,msg_body,'+18434080524',phone)
+            send_sms(account_sid,auth_token,msg_body,'+14152003922',phone)
             return redirect('/')
 
 
